@@ -1,0 +1,4 @@
+Terminal
+    pip install streamlit
+    pip install plotly_express
+    streamlit run app.py
