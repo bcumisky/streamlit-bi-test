@@ -8,10 +8,7 @@ st.set_page_config(layout="wide")
 
 # Functions for each of the pages
 def home(uploaded_file):
-    if uploaded_file:
-        st.header('Begin exploring the data using the menu on the left')
-    else:
-        st.header('To begin please upload a file')
+    st.header('Begin exploring the data using the menu on the left')
 
 def data_summary():
     st.header('Statistics of Dataframe')
