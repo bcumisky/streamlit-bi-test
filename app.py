@@ -7,9 +7,6 @@ import plotly_express as px
 st.set_page_config(layout="wide")
 
 # Functions for each of the pages
-def home():
-    st.header('Begin exploring the data using the menu on the left')
-
 def data_summary():
     st.header('Statistics of Dataframe')
     st.write(df.describe())
@@ -48,15 +45,13 @@ st.sidebar.title('Sidebar')
 dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
 
 st.sidebar.title('Navigation')
-options = st.sidebar.radio('Select what you want to display:', ['Home', 'Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
+options = st.sidebar.radio('Select what you want to display:', ['Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
 
 df = pd.read_csv(dummy_data)
 st.session_state['df'] = df
 
 # Navigation options
-if options == 'Home':
-    home()
-elif options == 'Data Summary':
+if options == 'Data Summary':
     data_summary()
 elif options == 'Data Header':
     data_header()
