@@ -15,12 +15,12 @@ t2.title("System-Level: Patient Satisfaction Report")
 with st.spinner('Updating Report...'):
     
     #Metrics setting and rendering
-    hosp_df = pd.read_excel('DataforMock.xlsx',sheet_name = 'Hospitals')
+    hosp_df = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Hospitals')
     hosp = st.selectbox('Choose Hospital', hosp_df, help = 'Filter report to show only one hospital')
     
     m1, m2, m3, m4, m5 = st.columns((1,1,1,1,1))
     
-    todf = pd.read_excel('DataforMock.xlsx',sheet_name = 'metrics')
+    todf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'metrics')
     to = todf[(todf['Hospital Attended']==hosp) & (todf['Metric']== 'Total Outstanding')]   
     ch = todf[(todf['Hospital Attended']==hosp) & (todf['Metric']== 'Current Handover Average Mins')]   
     hl = todf[(todf['Hospital Attended']==hosp) & (todf['Metric']== 'Hours Lost to Handovers Over 15 Mins')]
@@ -34,7 +34,7 @@ with st.spinner('Updating Report...'):
     # Number of Completed Handovers by Hour
     g1, g2, g3 = st.columns((1,1,1))
     
-    fgdf = pd.read_excel('DataforMock.xlsx',sheet_name = 'Graph')
+    fgdf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Graph')
     
     fgdf = fgdf[fgdf['Hospital Attended']==hosp] 
     
@@ -47,7 +47,7 @@ with st.spinner('Updating Report...'):
     g1.plotly_chart(fig, use_container_width=True) 
     
     # Predicted Number of Arrivals
-    fcst = pd.read_excel('DataforMock.xlsx',sheet_name = 'Forecast')
+    fcst = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Forecast')
     
     fcst = fcst[fcst['Hospital Attended']==hosp]
     
@@ -71,7 +71,7 @@ with st.spinner('Updating Report...'):
     # Current Waiting Handovers table
     cw1, cw2 = st.columns((2.5, 1.7))
     
-    whdf = pd.read_excel('DataforMock.xlsx',sheet_name = 'WaitingHandovers')
+    whdf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'WaitingHandovers')
       
     colourcode = []
                              
@@ -106,7 +106,7 @@ with st.spinner('Updating Report...'):
     cw1.plotly_chart(fig, use_container_width=True)    
     
     # Current Waiting Callsigns
-    cwdf = pd.read_excel('DataforMock.xlsx',sheet_name = 'CurrentWaitingCallsigns')
+    cwdf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'CurrentWaitingCallsigns')
     
     if hosp == 'All':
         cwdf = cwdf
@@ -140,7 +140,7 @@ with st.spinner('Report updated!'):
 # Performance Section  
 with st.expander("Previous Performance"):
         
-    hhc24 = pd.read_excel('DataforMock.xlsx',sheet_name = 'HospitalHandoversCompleted')  
+    hhc24 = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'HospitalHandoversCompleted')  
     
     colourcode = []
                           
@@ -175,7 +175,7 @@ with st.expander("Previous Performance"):
     p1,p2 = st.columns((3, 1.7))   
         
     #  Hospital Handovers Completed by Hour
-    hhc = pd.read_excel('DataforMock.xlsx',sheet_name = 'HospitalHandoverCompletedByHour')  
+    hhc = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'HospitalHandoverCompletedByHour')  
     
     hhc = hhc[hhc['Hospital Attended']==hosp]
     
@@ -211,7 +211,7 @@ with st.expander("Previous Performance"):
     
 
     #  Longest Completed Handovers     
-    lch = pd.read_excel('DataforMock.xlsx',sheet_name = 'LongestCompletedHandover')
+    lch = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'LongestCompletedHandover')
         
     if hosp == 'All':
             lch = lch
