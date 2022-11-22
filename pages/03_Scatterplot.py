@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
-st.session_state['df'] = df
+df = st.session_state['df']
 
 st.header('Plot of Data')
 

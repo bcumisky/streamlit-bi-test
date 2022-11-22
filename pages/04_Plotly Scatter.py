@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly_express as px
 
-st.session_state['df'] = df
+df = st.session_state['df']
 
 col1, col2 = st.columns(2)
 
@@ -18,12 +18,7 @@ st.plotly_chart(plot, use_container_width=True)
 
 ## Data
 with st.spinner('Updating Report...'):
-    
-    #Metrics setting and rendering
-    hosp_df = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Hospitals')
-    hosp = st.selectbox('Choose Hospital', hosp_df, help = 'Filter report to show only one hospital')
-
-    g1, g2, g3 = st.columns((1,1,1))
+g1, g2, g3 = st.columns((1,1,1))
     
     # Patient Satisfaction by Patient Hospital
     fgdf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Graph')
