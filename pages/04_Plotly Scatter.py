@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly_express as px
 
-df = pd.read_csv(dummy_data)
+st.session_state['df'] = df
 
 col1, col2 = st.columns(2)
 

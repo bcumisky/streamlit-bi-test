@@ -1,6 +1,6 @@
 import streamlit as st
 
-df = pd.read_csv(dummy_data)
+st.session_state['df'] = df
 
 st.header('Statistics of Dataframe')
 st.write(df.describe())

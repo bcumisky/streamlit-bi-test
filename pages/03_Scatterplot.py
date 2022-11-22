@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
-df = pd.read_csv(dummy_data)
+st.session_state['df'] = df
 
 st.header('Plot of Data')
 
