@@ -2,15 +2,18 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+
 import plotly_express as px
 
-# Variables to test
-dummy_data = pd.read_csv("https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv")
-df = pd.read_csv(dummy_data)
-st.session_state['df'] = df
 st.set_page_config(layout="wide")
 
 # Functions for each of the pages
+def home(uploaded_file):
+    if uploaded_file:
+        st.header('Begin exploring the data using the menu on the left')
+    else:
+        st.header('To begin please upload a file')
+
 def data_summary():
     st.header('Statistics of Dataframe')
     st.write(df.describe())
@@ -47,12 +50,21 @@ st.text('This is a web app to allow exploration of PX Data')
 
 # Sidebar setup
 st.sidebar.title('Sidebar')
+upload_file = st.sidebar.file_uploader('Upload a file containing your data')
 #Sidebar navigation
 st.sidebar.title('Navigation')
-options = st.sidebar.radio('Select what you want to display:', ['Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
+options = st.sidebar.radio('Select what you want to display:', ['Home', 'Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
+
+
+# Check if file has been uploaded
+if upload_file is not None:
+    df = pd.read_csv(upload_file)
+    st.session_state['df'] = df
 
 # Navigation options
-if options == 'Data Summary':
+if options == 'Home':
+    home(upload_file)
+elif options == 'Data Summary':
     data_summary()
 elif options == 'Data Header':
     data_header()
