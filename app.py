@@ -38,15 +38,13 @@ def interactive_plot():
 
 # Add a title and intro text
 st.title('Episode of Care Data Explorer')
-st.text('This is a web app to allow exploration of PX Data')
 
 # Sidebar setup
 st.sidebar.title('Sidebar')
-dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
-
-st.sidebar.title('Navigation')
 options = st.sidebar.radio('Select what you want to display:', ['Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
 
+# Dummy Data setup
+dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
 df = pd.read_csv(dummy_data)
 st.session_state['df'] = df
 
