@@ -19,7 +19,7 @@ st.plotly_chart(plot, use_container_width=True)
 
 ## Data
 with st.spinner('Updating Report...'):
-g1, g2, g3 = st.columns((1,1,1))
+    g1, g2, g3 = st.columns((1,1,1))
     
     # Patient Satisfaction by Patient Hospital
     fgdf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Graph')
