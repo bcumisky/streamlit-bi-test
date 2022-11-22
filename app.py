@@ -43,6 +43,20 @@ st.title('Episode of Care Data Explorer')
 st.sidebar.title('Sidebar')
 options = st.sidebar.radio('Select what you want to display:', ['Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
 
+# Tabs setup
+st.sidebar.title('Sidebar')
+options = st.sidebar.radio('Select what you want to display:', ['Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
+tab1, tab2, tab3 = st.tabs(['Tab 1', 'Tab 2', 'Tab 3'])
+
+with tab1:
+   st.header('Tab 1')
+
+with tab2:
+   st.header('Tab 2')
+
+with tab3:
+   st.header('Tab 3')
+
 # Dummy Data setup
 dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
 df = pd.read_csv(dummy_data)
