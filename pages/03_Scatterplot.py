@@ -1,6 +1,8 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
+df = pd.read_csv(dummy_data)
+
 st.header('Plot of Data')
 
 fig, ax = plt.subplots(1,1)
