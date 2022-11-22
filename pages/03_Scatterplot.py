@@ -1,7 +1,9 @@
 import streamlit as st
+import pandas as pd
 import matplotlib.pyplot as plt
 
-df = st.session_state['df']
+dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
+df = pd.read_csv(dummy_data)
 
 st.header('Plot of Data')
 

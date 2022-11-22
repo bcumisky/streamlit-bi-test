@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly_express as px
 
-df = st.session_state['df']
+dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
+df = pd.read_csv(dummy_data)
 
 col1, col2 = st.columns(2)
 
