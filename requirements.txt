@@ -1,0 +1,6 @@
+streamlit==1.15.0
+pandas==1.5.1
+matplotlib==3.3.2
+streamlit   1.15.0
+plotly-express==0.4.1
+click==8
