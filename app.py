@@ -46,7 +46,6 @@ options = st.sidebar.radio('Select what you want to display:', ['Data Summary', 
 # Dummy Data setup
 dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
 df = pd.read_csv(dummy_data)
-st.session_state['df'] = df
 
 # Navigation options
 if options == 'Data Summary':
