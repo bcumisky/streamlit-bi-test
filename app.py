@@ -36,7 +36,7 @@ def interactive_plot():
     plot.update_traces(marker=dict(color=chart_color))
     st.plotly_chart(plot, use_container_width=True)
 
-# Add a title and intro text
+# App Title
 st.title('Episode of Care Data Explorer')
 
 # Sidebar setup

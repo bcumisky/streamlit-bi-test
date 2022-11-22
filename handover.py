@@ -6,10 +6,8 @@ import plotly.graph_objects as go
 
 st.set_page_config(layout="wide")
 
-#Page header
-t1, t2 = st.columns((0.07,1)) 
-t1.image('images/index.png', width = 120)
-t2.title("System-Level: Patient Satisfaction Report")
+# App Title
+st.title('System-Level: Patient Satisfaction Report')
 
 ## Data
 with st.spinner('Updating Report...'):
