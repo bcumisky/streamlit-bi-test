@@ -17,11 +17,12 @@ plot.update_traces(marker=dict(color=chart_color))
 st.plotly_chart(plot, use_container_width=True)
 
 
-## Data
+## Dash Cards
 with st.spinner('Updating Report...'):
     g1, g2, g3 = st.columns((1,1,1))
     
     # Patient Satisfaction by Patient Hospital
+    
     fgdf = pd.read_excel('data/DataforMock.xlsx',sheet_name = 'Graph')
     
     fgdf = fgdf[fgdf['Hospital Attended']==hosp] 
