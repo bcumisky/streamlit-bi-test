@@ -7,7 +7,7 @@ import plotly_express as px
 st.set_page_config(layout="wide")
 
 # Functions for each of the pages
-def home(uploaded_file):
+def home():
     st.header('Begin exploring the data using the menu on the left')
 
 def data_summary():
@@ -39,27 +39,23 @@ def interactive_plot():
     plot.update_traces(marker=dict(color=chart_color))
     st.plotly_chart(plot, use_container_width=True)
 
-
 # Add a title and intro text
 st.title('Episode of Care Data Explorer')
 st.text('This is a web app to allow exploration of PX Data')
 
 # Sidebar setup
 st.sidebar.title('Sidebar')
-upload_file = st.sidebar.file_uploader('Upload a file containing your data')
-#Sidebar navigation
+dummy_data = 'https://raw.githubusercontent.com/bcumisky/temp_data/main/EOC.csv'
+
 st.sidebar.title('Navigation')
 options = st.sidebar.radio('Select what you want to display:', ['Home', 'Data Summary', 'Data Header', 'Scatter Plot', 'Interactive Plot'])
 
-
-# Check if file has been uploaded
-if upload_file is not None:
-    df = pd.read_csv(upload_file)
-    st.session_state['df'] = df
+df = pd.read_csv(dummy_data)
+st.session_state['df'] = df
 
 # Navigation options
 if options == 'Home':
-    home(upload_file)
+    home()
 elif options == 'Data Summary':
     data_summary()
 elif options == 'Data Header':
